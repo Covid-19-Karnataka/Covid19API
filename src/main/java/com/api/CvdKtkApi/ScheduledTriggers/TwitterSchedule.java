@@ -1,32 +1,24 @@
 package com.api.CvdKtkApi.ScheduledTriggers;
 
 import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.api.CvdKtkApi.Constants.Constants;
-import com.api.CvdKtkApi.Model.DistrictDataFirebaseModel;
 import com.api.CvdKtkApi.Model.TwitterResponseModel;
-import com.api.CvdKtkApi.Model.TwitterResponseModel.MetaData;
 import com.api.CvdKtkApi.Model.TwitterResponseModel.Tweets;
 import com.api.CvdKtkApi.Model.TwitterSrcDataFirebaseModel;
 import com.api.CvdKtkApi.Utils.FirebaseReadWriter;
 import com.api.CvdKtkApi.Utils.GeneralUtils;
 import com.google.gson.Gson;
-import com.twitter.clientlib.TwitterCredentialsOAuth2;
-import com.twitter.clientlib.api.TwitterApi;
-import org.springframework.web.client.RestTemplate;
 
 @Component
 public class TwitterSchedule {
