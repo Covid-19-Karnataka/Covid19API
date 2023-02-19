@@ -17,35 +17,29 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 @EnableScheduling
 public class CvdKtkApiApplication {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		
-		
-		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
-		
 
-//		File file = new File(Objects.requireNonNull(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY.toString())).getFile());
-//		FileInputStream file = new FileInputStream(CvdKtkApiApplication.class.getClassLoader().getResource("ssl_certs/mysslstore.jks").getFile());
-//		File file = new File(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY).getFile());
+		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
+
+		File file = new File(Objects.requireNonNull(classLoader.getResource("serviceKey.json")).getFile());
+
 		try {
 			FirebaseOptions options;
 			FileInputStream serviceAccount =
-					new FileInputStream(classLoader.getResource("serviceKey.json").getFile());
-;
+					  new FileInputStream(file.getAbsolutePath());
 		
 			options = FirebaseOptions.builder()
 				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-				    .setDatabaseUrl(Constants.ConnectionAPI.DATABASE_URL)
+				    .setDatabaseUrl("https://corona-karnataka-2020.firebaseio.com")
 				    .build();
 			FirebaseApp.initializeApp(options);
-			
+					
 			SpringApplication.run(CvdKtkApiApplication.class, args);
-		
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
