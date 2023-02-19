@@ -42,12 +42,11 @@ public class FirebaseAPI {
 	
 	// DatabaseReference ref = FirebaseDatabase.getInstance().getReference("/stats/distDataTimeSeries");
 	
-	// @RequestMapping(method = RequestMethod.GET, value = "/test")
-	// public StringBuffer getCurrentData() throws IOException
-	// {
-	// 	StringBuffer response = httpRequestUtils.getRequest(Constants.Schema.DISTRICT_DATA_TIME_SERIES);
-	// 	return response;
-	// }
+	 @RequestMapping(method = RequestMethod.GET, value = "/")
+	 public String helloWorld() throws IOException
+	 {
+	 	return "Hello world!";
+	 }
 
 	// @RequestMapping(method = RequestMethod.GET, value = "/delete")
 	// public void testReturn()
