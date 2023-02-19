@@ -29,25 +29,25 @@ public class CvdKtkApiApplication {
 
 		File file = new File(classLoader.getResource("serviceKey.json").getPath());
 
-//		try {
-//			FirebaseOptions options;
-//			FileInputStream serviceAccount =
-//					  new FileInputStream(file);
-//		
-//			options = FirebaseOptions.builder()
-//				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-//				    .setDatabaseUrl("https://corona-karnataka-2020.firebaseio.com")
-//				    .build();
-//			FirebaseApp.initializeApp(options);
-//					
+		try {
+			FirebaseOptions options;
+			FileInputStream serviceAccount =
+					  new FileInputStream(file);
+		
+			options = FirebaseOptions.builder()
+				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+				    .setDatabaseUrl("https://corona-karnataka-2020.firebaseio.com")
+				    .build();
+			FirebaseApp.initializeApp(options);
+					
 			SpringApplication.run(CvdKtkApiApplication.class, args);
 			
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
