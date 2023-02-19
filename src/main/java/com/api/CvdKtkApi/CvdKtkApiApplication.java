@@ -27,7 +27,7 @@ public class CvdKtkApiApplication {
 		
 		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
 
-		File file = new File(Objects.requireNonNull(classLoader.getResource("classpath:serviceKey.json")).getPath());
+		File file = new File(classLoader.getResource("serviceKey.json").getPath());
 
 //		try {
 //			FirebaseOptions options;
