@@ -21,20 +21,21 @@ import com.google.firebase.FirebaseOptions;
 @EnableScheduling
 public class CvdKtkApiApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		
 		
 		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
 		
-		File file = new File(Objects.requireNonNull(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY.toString())).getFile());
+
+//		File file = new File(Objects.requireNonNull(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY.toString())).getFile());
+		FileInputStream file = new FileInputStream(CvdKtkApiApplication.class.getClassLoader().getResource(Constants.ConnectionAPI.SERVICE_KEY.toString()).getFile());
 
 		try {
 			FirebaseOptions options;
-			FileInputStream serviceAccount =
-					  new FileInputStream(file.getAbsolutePath());
+		
 		
 			options = FirebaseOptions.builder()
-				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+				    .setCredentials(GoogleCredentials.fromStream(file))
 				    .setDatabaseUrl(Constants.ConnectionAPI.DATABASE_URL)
 				    .build();
 			FirebaseApp.initializeApp(options);
