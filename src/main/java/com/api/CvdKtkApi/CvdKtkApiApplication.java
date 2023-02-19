@@ -28,13 +28,12 @@ public class CvdKtkApiApplication {
 		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
 
 		File file = new File(classLoader.getResource("serviceKey.json").getPath());
-		System.out.println(file);
 
 		try {
 			FirebaseOptions options;
-			FileInputStream serviceAccount =
-					  new FileInputStream(file.getAbsolutePath());
-			System.out.println(serviceAccount);
+//			FileInputStream serviceAccount =
+//					  new FileInputStream(file.getAbsolutePath());
+//			System.out.println(serviceAccount);
 		
 //			options = FirebaseOptions.builder()
 //				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
