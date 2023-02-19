@@ -37,5 +37,13 @@ public class Constants {
 		String dd_MM_yyyy = "dd-MM-yyyy";
 		String yyyy_MM_dd = "YYYY-MM-dd";
 	}
+	
+	
+	public interface Twillo
+	{
+		String ACCOUNT_SID = "AC417fe5ca4371e6031193d46e869445dc";
+		String AUTH_TOKEN = "c1dca5da4f54064e4e468ed7b7cc398c";
+		String SERVICE_KEY = "VA4029c2521f8e229cc68d64de74133c0e";
+	}
 
 }

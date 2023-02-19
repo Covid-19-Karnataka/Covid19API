@@ -2,29 +2,16 @@ package com.api.CvdKtkApi.RestController;
 
 import java.io.IOException;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-// import com.api.CvdKtkApi.Callback.FirebaseCallback;
-import com.api.CvdKtkApi.Constants.Constants;
 import com.api.CvdKtkApi.PostFromWebsite.FeedbackServiceImpl;
 // import com.api.CvdKtkApi.ScheduledTriggers.DriveSchedule;
 // import com.api.CvdKtkApi.ScheduledTriggers.PythonScriptExecuter;
 import com.api.CvdKtkApi.ScheduledTriggers.TwitterSchedule;
-import com.api.CvdKtkApi.Utils.HttpRequestUtils;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.twilio.Twilio;
-import com.twilio.rest.verify.v2.Service;
-import com.twilio.rest.verify.v2.service.Verification;
 
 @RestController
 public class FirebaseAPI {
