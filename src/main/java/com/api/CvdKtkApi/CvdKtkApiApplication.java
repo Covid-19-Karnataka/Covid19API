@@ -31,9 +31,9 @@ public class CvdKtkApiApplication {
 
 		try {
 			FirebaseOptions options;
-//			FileInputStream serviceAccount =
-//					  new FileInputStream(file.getAbsolutePath());
-//			System.out.println(serviceAccount);
+			FileInputStream serviceAccount =
+					  new FileInputStream(file.getAbsolutePath());
+			System.out.println(serviceAccount);
 		
 //			options = FirebaseOptions.builder()
 //				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
