@@ -29,9 +29,11 @@ public class TwitterSchedule {
 	@Autowired
 	FirebaseReadWriter readWriter;
 
-	@Scheduled(cron = "58 23 * * * ?")
+	@Scheduled(cron = "01 01 * * * ?")
 	public void scrapTweetViaCron()
 	{
+		String dateTime = gUtils.currentTimeStamp(Constants.DateFormat.dd_MM_yyyy_HH_mm);
+		System.out.println("Cron Expression Triggered at : "+dateTime);
 		String day = gUtils.currentTimeStamp(Constants.DateFormat.yyyy_MM_dd);
 		scrapTweet(day);
 	}
@@ -51,7 +53,9 @@ public class TwitterSchedule {
 			}
 			else
 			{
-				System.out.println("No Tweets for "+day+" date.");
+				String dateTime = gUtils.currentTimeStamp(Constants.DateFormat.dd_MM_yyyy_HH_mm);
+
+				System.out.println("No Tweets for timestamp: "+dateTime);
 			}
 
 		} catch (Exception e) {

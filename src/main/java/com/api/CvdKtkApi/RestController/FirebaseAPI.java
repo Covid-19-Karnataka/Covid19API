@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // import com.api.CvdKtkApi.Callback.FirebaseCallback;
 import com.api.CvdKtkApi.Constants.Constants;
+import com.api.CvdKtkApi.PostFromWebsite.FeedbackServiceImpl;
 // import com.api.CvdKtkApi.ScheduledTriggers.DriveSchedule;
 // import com.api.CvdKtkApi.ScheduledTriggers.PythonScriptExecuter;
 import com.api.CvdKtkApi.ScheduledTriggers.TwitterSchedule;
@@ -21,53 +22,61 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.twilio.Twilio;
+import com.twilio.rest.verify.v2.Service;
+import com.twilio.rest.verify.v2.service.Verification;
 
 @RestController
 public class FirebaseAPI {
-	
+
 	// @Autowired
 	// FirebaseCallback callback;
-	
+
 	// @Autowired
 	// HttpRequestUtils httpRequestUtils;
-	
+
 	// @Autowired
 	// DriveSchedule driveSchedule;
-	
+
 	// @Autowired
 	// PythonScriptExecuter scriptExecuter;
-	
+
 	@Autowired
 	TwitterSchedule twitterSchedule;
-	
-	// DatabaseReference ref = FirebaseDatabase.getInstance().getReference("/stats/distDataTimeSeries");
-	
-	 @RequestMapping(method = RequestMethod.GET, value = "/")
-	 public String helloWorld() throws IOException
-	 {
-	 	return "Hello world!";
-	 }
+
+	@Autowired
+	FeedbackServiceImpl feedbackServiceImpl;
+
+	// DatabaseReference ref =
+	// FirebaseDatabase.getInstance().getReference("/stats/distDataTimeSeries");
+
+	@RequestMapping(method = RequestMethod.GET, value = "/")
+	public String helloWorld() throws IOException {
+
+		return "Hello world!";
+
+	}
 
 	// @RequestMapping(method = RequestMethod.GET, value = "/delete")
 	// public void testReturn()
 	// {
-	// 	System.out.println("deleting");
-	// 	ref.addListenerForSingleValueEvent(new ValueEventListener() {
-			
-	// 		public void onDataChange(DataSnapshot snapshot) {
-	// 			// TODO Auto-generated method stub
-	// 			for (DataSnapshot appleSnapshot: snapshot.getChildren()) {
-	// 	            appleSnapshot.getRef().removeValueAsync();
-	// 	        }
-	// 		}
-			
-	// 		public void onCancelled(DatabaseError error) {
-	// 			// TODO Auto-generated method stub
-				
-	// 		}
-	// 	});
+	// System.out.println("deleting");
+	// ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+	// public void onDataChange(DataSnapshot snapshot) {
+	// // TODO Auto-generated method stub
+	// for (DataSnapshot appleSnapshot: snapshot.getChildren()) {
+	// appleSnapshot.getRef().removeValueAsync();
 	// }
-	
+	// }
+
+	// public void onCancelled(DatabaseError error) {
+	// // TODO Auto-generated method stub
+
+	// }
+	// });
+	// }
+
 //	@RequestMapping(method = RequestMethod.GET, value = "/latest")
 //	public String latestData() throws IOException
 //	{
@@ -85,20 +94,32 @@ public class FirebaseAPI {
 //		return null;
 //
 //	}
-	
+
 	// @RequestMapping(method = RequestMethod.GET, value = "/trigger")
 	// public void testSchedule()
 	// {
-	// 	scriptExecuter.PythonExec("");
+	// scriptExecuter.PythonExec("");
 	// }
-	
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "getTweet/{date}")
-	public void getTwitterDataManually(@PathVariable(value="date") String date) throws IOException
-	{
-		
+	public void getTwitterDataManually(@PathVariable(value = "date") String date) throws IOException {
+
 		System.out.println("Inside getTwitterDataManually of FirebaseAPI");
 		System.out.println(date);
 		twitterSchedule.scrapTweet(date);
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "sendOTP/{phno}")
+	public String sendFeedback(@PathVariable(value = "phno")String phno) {
+		String response = feedbackServiceImpl.setFeedBack(phno);
+		return response;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "verifyOTP/{phno}/{otp}")
+	public String verifyOTP(@PathVariable(value = "phno")String phno, @PathVariable(value="otp") String otp)
+	{
+		String status = feedbackServiceImpl.verifyOTP(phno, otp);
+		return status;
+		
 	}
 }
