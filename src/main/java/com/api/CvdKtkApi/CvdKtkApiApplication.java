@@ -29,11 +29,12 @@ public class CvdKtkApiApplication {
 
 //		File file = new File(Objects.requireNonNull(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY.toString())).getFile());
 //		FileInputStream file = new FileInputStream(CvdKtkApiApplication.class.getClassLoader().getResource("ssl_certs/mysslstore.jks").getFile());
-		File file = new File(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY).getFile());
+//		File file = new File(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY).getFile());
 		try {
 			FirebaseOptions options;
 			FileInputStream serviceAccount =
-					  new FileInputStream(file);
+					new FileInputStream(classLoader.getResource("serviceKey.json").getFile());
+;
 		
 			options = FirebaseOptions.builder()
 				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
