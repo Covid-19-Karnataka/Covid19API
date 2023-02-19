@@ -28,14 +28,15 @@ public class CvdKtkApiApplication {
 		
 
 //		File file = new File(Objects.requireNonNull(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY.toString())).getFile());
-		FileInputStream file = new FileInputStream(CvdKtkApiApplication.class.getClassLoader().getResource(Constants.ConnectionAPI.SERVICE_KEY.toString()).getFile());
-
+//		FileInputStream file = new FileInputStream(CvdKtkApiApplication.class.getClassLoader().getResource("ssl_certs/mysslstore.jks").getFile());
+		File file = new File(classLoader.getResource(Constants.ConnectionAPI.SERVICE_KEY).getFile());
 		try {
 			FirebaseOptions options;
-		
+			FileInputStream serviceAccount =
+					  new FileInputStream(file);
 		
 			options = FirebaseOptions.builder()
-				    .setCredentials(GoogleCredentials.fromStream(file))
+				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
 				    .setDatabaseUrl(Constants.ConnectionAPI.DATABASE_URL)
 				    .build();
 			FirebaseApp.initializeApp(options);
