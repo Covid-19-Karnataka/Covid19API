@@ -22,36 +22,32 @@ import com.google.firebase.FirebaseOptions;
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 @EnableScheduling
 public class CvdKtkApiApplication {
-	
-	@Autowired
-	ResourceLoader resourceLoader;
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		
-
 		ClassLoader classLoader = CvdKtkApiApplication.class.getClassLoader();
 
 		File file = new File(Objects.requireNonNull(classLoader.getResource("classpath:serviceKey.json")).getPath());
 
-		try {
-			FirebaseOptions options;
-			FileInputStream serviceAccount =
-					  new FileInputStream(file.getAbsolutePath());
-		
-			options = FirebaseOptions.builder()
-				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-				    .setDatabaseUrl("https://corona-karnataka-2020.firebaseio.com")
-				    .build();
-			FirebaseApp.initializeApp(options);
-					
+//		try {
+//			FirebaseOptions options;
+//			FileInputStream serviceAccount =
+//					  new FileInputStream(file);
+//		
+//			options = FirebaseOptions.builder()
+//				    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+//				    .setDatabaseUrl("https://corona-karnataka-2020.firebaseio.com")
+//				    .build();
+//			FirebaseApp.initializeApp(options);
+//					
 			SpringApplication.run(CvdKtkApiApplication.class, args);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 
