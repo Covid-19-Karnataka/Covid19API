@@ -28,24 +28,15 @@ public class TwitterSchedule {
 	
 	@Autowired
 	FirebaseReadWriter readWriter;
-
-	@Scheduled(cron = "01 01 * * * ?")
-	public void scrapTweetViaCron()
-	{
-		String dateTime = gUtils.currentTimeStamp(Constants.DateFormat.dd_MM_yyyy_HH_mm);
-		System.out.println("Cron Expression Triggered at : "+dateTime);
-		String day = gUtils.currentTimeStamp(Constants.DateFormat.yyyy_MM_dd);
-		scrapTweet(day);
-	}
 	
-	
+	@SuppressWarnings("unused")
 	public void scrapTweet(String day) {
 		System.out.println("Inside scrapTweet of TwitterSchedule");
 		try {
 			TwitterResponseModel response = getTweet(day);
 			List<TwitterSrcDataFirebaseModel> respList = processResponse(response, day);
 
-			if (respList.size() > 0) {
+			if (respList!=null) {
 				for(TwitterSrcDataFirebaseModel srcData : respList)
 				{
 					readWriter.FirebaseTwitterWriter(Constants.Schema.TWITTER_DATA, srcData.getDate(), srcData);
@@ -63,6 +54,7 @@ public class TwitterSchedule {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private List<TwitterSrcDataFirebaseModel> processResponse(TwitterResponseModel response, String day) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Inside processResponse of TwitterSchedule");
@@ -70,7 +62,7 @@ public class TwitterSchedule {
 		List<Tweets> list = response.getData();
 		List<TwitterSrcDataFirebaseModel> firebaseModelsList = new ArrayList<TwitterSrcDataFirebaseModel>();
 
-		if (list.size()>0 || list!=null)
+		if (list!=null)
 		{
 			for (Tweets tweet : list) {
 				String tweetText = tweet.getText();
