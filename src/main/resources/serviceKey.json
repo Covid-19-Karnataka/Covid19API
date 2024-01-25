@@ -1,12 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "corona-karnataka-2020",
-  "private_key_id": "cd8d6c4bed11691315aeb0e5b1509c80f0063f82",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8Q9pz3TYhRtqF\nn90GQcbPOMpR2DQhgpBrG7MxQRApPPEl3/0KdvHG/fr51v+lUBofGGHbIMcJkr0V\nEO3KDY9VRLt1lz1Wu8SmqcTnX1KWUruhcc9w24FO1vtp/z34sdK+9yoD00+7oMn5\nQel/hrCSn/9mcU3r8iDB20VCqTFqjwny6FYyokCJJS/ZYzvk//o977604mQw+YAU\nuUSmextXxIU4xnh3q2nZIpciwICyQgcje+PCPao3DDSge7V2toWsVqgdFfvTJus2\nGPg2G3uXLGrUpbignkZgfk0RYr1CDLRB+GruzrOAgwpQMABUDnzi3g/yedx53J9v\n67vhmxllAgMBAAECggEAK1ZqTeQk/wWGrZ5mfHd9SrvttOfyXilmUcWjWwn5bKjC\n8T9NylAlqXNTSBpyKG2XScOs2QrDTqSZAqWuO2YiMdR7256YR+Q66Uuo0EMc6Y47\nc3dVs4rQCiRKZTTUoPBcTUnrwcwtrUke3VJLLChG8sXCfuRDtfX7jOyLFcSJY9gK\nkOhZhDn3yIY987X6gQPuw5s/MQotnFJT/Lep8ZY/JkJY8Gd5s4zD9GuEvc7BkEcY\np/u7ewpu4eXrXCbcW1SYPLI/xH3c3acN1wzmfux834vO/cAJuIE4UI2UytHtGJrZ\ndEg56l4vd5GaGrTAYTOSLMZLfzWsMidLywQ5ftyD4QKBgQDvvWeHubi312r8sEfN\n9YwLRd4nxXzHlztqtOIOZTtQQurdiEBeQgGrNwlsccbzJar5Q8KWJouuF4irk4sO\nbTwfX60pdYvuufzL9lyzv89R+whNZlbqCXNDCbUjFqgLF35EV5e1J97c/YczpEy/\nZHrVFK8qqc9jrN1h+Cr5l6ajBQKBgQDJCLGFl88ZpgxFchEjZhJ4khwWoZZcgzVm\nkzDaSV/I1TuuoCmv2M8J1TSXH14HdF9YhQWM1sDfTuYtMyrsmTyjsnsrc23gW+ja\n1QEUn/2okWAWXL12hBQr5Q5zkDXn3l/j0y+6y0q+gkC+LPHBrDTA8YjZM6fBEiND\nHPn7lnsq4QKBgD19HdWw69CzPqyK5g/MP9wQUndu7p8eic3HkQdSLZFbaHPjY2cJ\nlPX+Cru2vulUKvL9zyXFwyOmw5YGJK9Rkw8U8gvlKzvSliUWDhbIRntnYGzBp98l\nB1wVXFEgmX8mymrq8G01SbLyj7/ODyUzt1F5mafen+OXzbw384XKwKGlAoGAH/UD\n00rInzkoJjn1w3zMXuJLGMXjEx3AdWfckjarxU8wR5gqSEvczaFY1NUlq2Wyam3q\n7fKNgnIWYQULQ8UwQI10yvl0c//oSjEmFNNCDXPepG9lpttkIX4uB+zaxNsyvxKp\nObZrUVF/XTvjynfHgwxiRrTRa/2oIVkP3BCVz8ECgYEAsnAEUczoPjFJ+X1AtQiv\nmeFNTEoIEAvPt0BElS8qyPajJ+cAC2zGMrYNhay3Ch0KUuTC15mIS0J/usZM8FUi\nR94xBumHFbI7qOoqjgY1+ZB2VrYrY7tl2Kkvqc8Oxm2Sudv2AeCVRJ64FQo6IevN\nzeEgN0EXkGDlySJanPY/65g=\n-----END PRIVATE KEY-----\n",
-  "client_email": "firebase-adminsdk-qapx8@corona-karnataka-2020.iam.gserviceaccount.com",
-  "client_id": "103199515043053667920",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-qapx8%40corona-karnataka-2020.iam.gserviceaccount.com"
-}
+Deprycated
